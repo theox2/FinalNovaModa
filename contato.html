@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - NovaModa</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Hero Section */
+    .contact-hero {
+      min-height: 50vh;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(20, 208, 214, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.15), transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(20,208,214,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+    }
+
+    .contact-hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #14d0d6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .contact-hero p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    /* Container */
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    /* Layout Principal */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    /* Informações de Contato */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .info-card {
+      background: #111;
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid #222;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, #14d0d6, #0ea5e9);
+      transition: height 0.3s;
+    }
+
+    .info-card:hover::before {
+      height: 100%;
+    }
+
+    .info-card:hover {
+      border-color: #14d0d6;
+      transform: translateX(8px);
+    }
+
+    .info-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(20,208,214,0.1), rgba(14,165,233,0.1));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border: 1px solid rgba(20,208,214,0.2);
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .info-card p {
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .info-card a {
+      color: #14d0d6;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .info-card a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* Redes Sociais */
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      background: #0b0b0b;
+      border: 1px solid #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: #14d0d6;
+      border-color: #14d0d6;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(20,208,214,0.4);
+    }
+
+    /* Formulário */
+    .contact-form-wrapper {
+      background: #111;
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid #222;
+    }
+
+    .contact-form-wrapper h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #888;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 16px 20px;
+      background: #0b0b0b;
+      border: 2px solid #222;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      transition: all 0.3s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: #14d0d6;
+      background: rgba(20,208,214,0.05);
+      box-shadow: 0 0 0 4px rgba(20,208,214,0.1);
+    }
+
+    .form-textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #14d0d6, #0ea5e9);
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(20,208,214,0.3);
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(20,208,214,0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 100px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #fff;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: #14d0d6;
+    }
+
+    .faq-question {
+      padding: 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #fff;
+      user-select: none;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.8rem;
+      color: #14d0d6;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 25px;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 25px 25px 25px;
+    }
+
+    /* Horário de Atendimento */
+    .hours-section {
+      background: linear-gradient(135deg, rgba(20,208,214,0.08) 0%, rgba(14,165,233,0.08) 100%);
+      padding: 50px 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(20,208,214,0.1);
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .hours-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .hours-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hours-item {
+      padding: 15px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    .hours-day {
+      color: #14d0d6;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .hours-time {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      padding: 20px;
+      background: rgba(74,222,128,0.1);
+      border: 2px solid #4ade80;
+      border-radius: 12px;
+      color: #4ade80;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .contact-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hours-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+
+      .contact-form-wrapper {
+        padding: 30px 20px;
+      }
+
+      .hours-section {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo-area" onclick="location.href='index.html'">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" class="logo" alt="NovaModa">
+        <span class="brand">NovaModa</span>
+      </div>
+      
+      <nav class="nav-desktop">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="categorias.html" class="nav-link">Categorias</a>
+        </div>
+        <div class="nav-item">
+          <a href="sobre.html" class="nav-link">Sobre</a>
+        </div>
+        <div class="nav-item">
+          <a href="contato.html" class="nav-link" style="color: #14d0d6;">Contato</a>
+        </div>
+      </nav>
+
+      <div class="right-area">
+        <a href="login.html" class="btn entrar-btn">Entrar</a>
+        <div class="icons">
+          <span class="icon" onclick="location.href='favoritos.html'">♥</span>
+          <span class="icon" onclick="location.href='carrinho.html'">🛒<span class="cart-count">0</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="contact-hero-content">
+      <h1>Fale Conosco</h1>
+      <p>
+        Estamos aqui para ajudar! Entre em contato e nossa equipe responderá o mais rápido possível.
+      </p>
+    </div>
+  </section>
+
+  <!-- Container Principal -->
+  <div class="contact-container">
+    
+    <!-- Layout Principal -->
+    <div class="contact-layout">
+      
+      <!-- Informações de Contato -->
+      <div class="contact-info">
+        
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <h3>Email</h3>
+          <p>Respondemos em até 24 horas</p>
+          <a href="mailto:contato@novamoda.com">contato@novamoda.com</a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📱</div>
+          <h3>Telefone / WhatsApp</h3>
+          <p>Seg à Sex, 9h às 18h</p>
+          <a href="tel:+5511999999999">(11) 99999-9999</a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Endereço</h3>
+          <p>
+            Rua das Flores, 123<br>
+            Vila Madalena - São Paulo, SP<br>
+            CEP: 05433-000
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">💬</div>
+          <h3>Redes Sociais</h3>
+          <p>Siga-nos e fique por dentro das novidades</p>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">📷</a>
+            <a href="#" class="social-link" title="Facebook">f</a>
+            <a href="#" class="social-link" title="Twitter">𝕏</a>
+            <a href="#" class="social-link" title="TikTok">🎵</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Formulário -->
+      <div class="contact-form-wrapper">
+        <h2>Envie sua mensagem</h2>
+        
+        <div class="success-message" id="successMessage">
+          ✅ Mensagem enviada com sucesso! Responderemos em breve.
+        </div>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome *</label>
+              <input type="text" class="form-input" name="name" required placeholder="Seu nome completo">
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" class="form-input" name="email" required placeholder="seu@email.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefone</label>
+              <input type="tel" class="form-input" name="phone" placeholder="(11) 99999-9999">
+            </div>
+            <div class="form-group">
+              <label>Assunto *</label>
+              <select class="form-select" name="subject" required>
+                <option value="">Selecione...</option>
+                <option value="pedido">Dúvida sobre Pedido</option>
+                <option value="produto">Informação de Produto</option>
+                <option value="troca">Troca/Devolução</option>
+                <option value="entrega">Entrega</option>
+                <option value="pagamento">Pagamento</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Mensagem *</label>
+            <textarea class="form-textarea" name="message" required placeholder="Descreva sua dúvida ou mensagem..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            Enviar Mensagem
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Horário de Atendimento -->
+    <div class="hours-section">
+      <h3>Horário de Atendimento</h3>
+      <div class="hours-list">
+        <div class="hours-item">
+          <div class="hours-day">Segunda a Sexta</div>
+          <div class="hours-time">09:00 - 18:00</div>
+        </div>
+        <div class="hours-item">
+          <div class="hours-day">Sábado</div>
+          <div class="hours-time">09:00 - 14:00</div>
+        </div>
+        <div class="hours-item">
+          <div class="hours-day">Domingo</div>
+          <div class="hours-time">Fechado</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2>Perguntas Frequentes</h2>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">
+            Qual o prazo de entrega?
+          </div>
+          <div class="faq-answer">
+            O prazo varia de acordo com sua região. Para a região metropolitana de São Paulo, a entrega ocorre em até 3 dias úteis. Para demais regiões, entre 5 a 12 dias úteis após a confirmação do pagamento.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Como faço para trocar um produto?
+          </div>
+          <div class="faq-answer">
+            Você tem até 7 dias após o recebimento para solicitar a troca. Entre em contato com nosso atendimento através do WhatsApp ou email informando o número do pedido e o motivo da troca. Enviaremos todas as instruções necessárias.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Quais formas de pagamento são aceitas?
+          </div>
+          <div class="faq-answer">
+            Aceitamos cartão de crédito (em até 12x), PIX e boleto bancário. O pagamento via PIX é confirmado instantaneamente, enquanto o boleto pode levar até 3 dias úteis para compensação.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Vocês têm loja física?
+          </div>
+          <div class="faq-answer">
+            Sim! Nossa loja física fica na Rua das Flores, 123 - Vila Madalena, São Paulo/SP. Funcionamos de segunda a sexta das 9h às 18h e aos sábados das 9h às 14h. Você pode visitar para conhecer nossos produtos pessoalmente!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Como acompanho meu pedido?
+          </div>
+          <div class="faq-answer">
+            Após a confirmação do pagamento, você receberá um email com o código de rastreamento. Com ele, você pode acompanhar a entrega diretamente no site dos Correios ou da transportadora responsável.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" style="width:40px;height:40px;">
+              <h4>NovaModa</h4>
+            </div>
+            <p class="footer-desc">
+              Moda urbana premium com design exclusivo e qualidade internacional. Vista o futuro.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Institucional</h4>
+            <ul>
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="contato.html">Contato</a></li>
+              <li><a href="#">Trabalhe Conosco</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Ajuda</h4>
+            <ul>
+              <li><a href="#">Trocas e Devoluções</a></li>
+              <li><a href="#">Dúvidas Frequentes</a></li>
+              <li><a href="#">Rastreamento</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contato</h4>
+            <p style="color:#888;font-size:14px;">
+              📧 contato@novamoda.com<br>
+              📱 (11) 99999-9999<br>
+              📍 São Paulo, SP
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright">
+          © 2024 NovaModa. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const wasActive = item.classList.contains('active');
+        
+        // Fechar todos
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        // Abrir o clicado (se não estava aberto)
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Form Submit
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const successMsg = document.getElementById('successMessage');
+      
+      // Desabilitar botão
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      
+      // Simular envio (aqui você faria a requisição real)
+      setTimeout(() => {
+        // Mostrar mensagem de sucesso
+        successMsg.classList.add('show');
+        
+        // Resetar formulário
+        e.target.reset();
+        
+        // Reabilitar botão
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar Mensagem';
+        
+        // Esconder mensagem após 5 segundos
+        setTimeout(() => {
+          successMsg.classList.remove('show');
+        }, 5000);
+        
+        // Scroll para mensagem de sucesso
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1500);
+    });
+
+    // Máscara de telefone
+    document.querySelector('input[name="phone"]').addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length <= 11) {
+        value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        e.target.value = value;
+      }
+    });
+  </script>
+</body>
+</html>

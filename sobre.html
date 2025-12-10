@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós - NovaModa</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Hero Section */
+    .about-hero {
+      min-height: 60vh;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(20, 208, 214, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.15), transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(20,208,214,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 60px 60px; }
+    }
+
+    .about-hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #14d0d6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .about-hero p {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Container */
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    /* Nossa História */
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .story-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .story-image::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(45deg, #14d0d6, #0ea5e9);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .story-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .story-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .story-content h2 span {
+      background: linear-gradient(135deg, #14d0d6, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-content p {
+      color: #ccc;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    /* Valores */
+    .values-section {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .values-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #fff;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      background: #111;
+      padding: 40px 30px;
+      border-radius: 16px;
+      border: 1px solid #222;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #14d0d6, #0ea5e9);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .value-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      border-color: #14d0d6;
+      box-shadow: 0 20px 40px rgba(20,208,214,0.2);
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: linear-gradient(135deg, #14d0d6, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .value-card p {
+      color: #aaa;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Estatísticas */
+    .stats-section {
+      background: linear-gradient(135deg, rgba(20,208,214,0.08) 0%, rgba(14,165,233,0.08) 100%);
+      padding: 80px 40px;
+      border-radius: 24px;
+      border: 1px solid rgba(20,208,214,0.1);
+      margin-bottom: 100px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #14d0d6, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .stat-item p {
+      color: #888;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* Time */
+    .team-section {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .team-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #fff;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .team-member {
+      background: #111;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #222;
+      transition: all 0.3s;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      border-color: #14d0d6;
+      box-shadow: 0 20px 40px rgba(20,208,214,0.2);
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #14d0d6, #0ea5e9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #000;
+    }
+
+    .team-info {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .team-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .team-info p {
+      color: #14d0d6;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .team-social {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .team-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #0b0b0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #14d0d6;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .team-social a:hover {
+      background: #14d0d6;
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    /* CTA Final */
+    .cta-section {
+      background: linear-gradient(135deg, #14d0d6, #0ea5e9);
+      padding: 60px 40px;
+      border-radius: 24px;
+      text-align: center;
+      color: #000;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #000;
+      color: #14d0d6;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .story-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .values-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .about-hero p {
+        font-size: 1.1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo-area" onclick="location.href='index.html'">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" class="logo" alt="NovaModa">
+        <span class="brand">NovaModa</span>
+      </div>
+      
+      <nav class="nav-desktop">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="categorias.html" class="nav-link">Categorias</a>
+        </div>
+        <div class="nav-item">
+          <a href="sobre.html" class="nav-link" style="color: #14d0d6;">Sobre</a>
+        </div>
+        <div class="nav-item">
+          <a href="contato.html" class="nav-link">Contato</a>
+        </div>
+      </nav>
+
+      <div class="right-area">
+        <a href="login.html" class="btn entrar-btn">Entrar</a>
+        <div class="icons">
+          <span class="icon" onclick="location.href='favoritos.html'">♥</span>
+          <span class="icon" onclick="location.href='carrinho.html'">🛒<span class="cart-count">0</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <h1>Somos a <span>NovaModa</span></h1>
+      <p>
+        Mais que roupas, somos um movimento. Nascemos para revolucionar o streetwear brasileiro, 
+        unindo estilo, atitude e qualidade premium.
+      </p>
+    </div>
+  </section>
+
+  <!-- Container Principal -->
+  <div class="about-container">
+    
+    <!-- Nossa História -->
+    <section class="story-section">
+      <div class="story-image">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop" alt="Nossa história">
+      </div>
+      <div class="story-content">
+        <h2>Nossa <span>História</span></h2>
+        <p>
+          Fundada em 2024, a NovaModa nasceu da paixão por moda urbana e da vontade de criar 
+          algo diferente no mercado brasileiro. Inspirados pela cultura trap, streetwear e 
+          pelo estilo de vida urbano, criamos uma marca que representa autenticidade.
+        </p>
+        <p>
+          Cada peça é cuidadosamente selecionada pensando em você que busca qualidade, 
+          conforto e um visual que expressa personalidade. Não vendemos apenas roupas — 
+          entregamos identidade.
+        </p>
+        <p>
+          Hoje, somos referência em moda urbana premium, com mais de 50 mil clientes 
+          satisfeitos em todo o Brasil. E isso é só o começo.
+        </p>
+      </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="values-section">
+      <h2>Nossos Valores</h2>
+      
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">✨</div>
+          <h3>Autenticidade</h3>
+          <p>
+            Acreditamos em ser verdadeiro. Cada produto reflete nosso compromisso 
+            com o estilo autêntico do streetwear.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🏆</div>
+          <h3>Qualidade Premium</h3>
+          <p>
+            Trabalhamos apenas com os melhores materiais e fornecedores. 
+            Qualidade nunca é negociável.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <h3>Sustentabilidade</h3>
+          <p>
+            Comprometidos com o futuro. Usamos processos sustentáveis e 
+            materiais eco-friendly sempre que possível.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Comunidade</h3>
+          <p>
+            Mais que clientes, você faz parte da família NovaModa. 
+            Juntos, construímos um movimento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estatísticas -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>50k+</h3>
+          <p>Clientes Satisfeitos</p>
+        </div>
+        <div class="stat-item">
+          <h3>500+</h3>
+          <p>Produtos Exclusivos</p>
+        </div>
+        <div class="stat-item">
+          <h3>4.9★</h3>
+          <p>Avaliação Média</p>
+        </div>
+        <div class="stat-item">
+          <h3>98%</h3>
+          <p>Recomendação</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Time -->
+    <section class="team-section">
+      <h2>Nosso Time</h2>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-photo">👔</div>
+          <div class="team-info">
+            <h3>Carlos Silva</h3>
+            <p>CEO & Fundador</p>
+            <div class="team-social">
+              <a href="#" title="LinkedIn">in</a>
+              <a href="#" title="Instagram">📷</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-photo">🎨</div>
+          <div class="team-info">
+            <h3>Ana Costa</h3>
+            <p>Diretora Criativa</p>
+            <div class="team-social">
+              <a href="#" title="LinkedIn">in</a>
+              <a href="#" title="Instagram">📷</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-photo">📊</div>
+          <div class="team-info">
+            <h3>João Mendes</h3>
+            <p>Head de Operações</p>
+            <div class="team-social">
+              <a href="#" title="LinkedIn">in</a>
+              <a href="#" title="Instagram">📷</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-photo">💡</div>
+          <div class="team-info">
+            <h3>Maria Santos</h3>
+            <p>Head de Marketing</p>
+            <div class="team-social">
+              <a href="#" title="LinkedIn">in</a>
+              <a href="#" title="Instagram">📷</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <h2>Pronto para fazer parte?</h2>
+      <p>Vista o futuro. Vista atitude. Vista NovaModa.</p>
+      <a href="categorias.html" class="cta-button">Explorar Coleção</a>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" style="width:40px;height:40px;">
+              <h4>NovaModa</h4>
+            </div>
+            <p class="footer-desc">
+              Moda urbana premium com design exclusivo e qualidade internacional. Vista o futuro.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Institucional</h4>
+            <ul>
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="contato.html">Contato</a></li>
+              <li><a href="#">Trabalhe Conosco</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Ajuda</h4>
+            <ul>
+              <li><a href="#">Trocas e Devoluções</a></li>
+              <li><a href="#">Dúvidas Frequentes</a></li>
+              <li><a href="#">Fale Conosco</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contato</h4>
+            <p style="color:#888;font-size:14px;">
+              📧 contato@novamoda.com<br>
+              📱 (11) 99999-9999<br>
+              📍 São Paulo, SP
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright">
+          © 2024 NovaModa. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
